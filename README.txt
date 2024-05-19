@@ -21,8 +21,10 @@ Thank you for downloading this productivity app!
 Here's more on how to use this via command line:
 
     1. To run this simple app, all you need to do is run the "Open Me" file from the folder you've downloaded.
-    2. Command to block websites: python website_blocker.py block
-    3. Command to unblock websites: python website_blocker.py unblock
+    2. Command to block websites: qq --block
+    3. Command to unblock websites: qq -unblock
+    4. Command to show options in the command line qq --helpme
+
 
 ////////////////////////////////////////////////////////////////////////////
 

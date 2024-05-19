@@ -1,5 +1,7 @@
+#!/usr/bin/env python
+
 import os
-import sys
+import argparse
 
 # List of websites to block
 websites_to_block = [
@@ -38,15 +40,21 @@ def unblock_websites(websites, hosts_path):
         print("Permission denied: Please run this script as an administrator.")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python website_blocker.pt <block|unblock>")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(
+        description="Block or unblock websites.",
+        epilog="Example commands:\n"
+               "  website_blocker.py --block      Block the specified websites\n"
+               "  website_blocker.py --unblock    Unblock the specified websites",
+        formatter_class=argparse.RawTextHelpFormatter
+    )
+    parser.add_argument("--block", action="store_true", help="Block the specified websites.")
+    parser.add_argument("--unblock", action="store_true", help="Unblock the specified websites.")
 
-    action = sys.argv[1].lower()
-    if action == "block":
+    args = parser.parse_args()
+
+    if args.block:
         block_websites(websites_to_block, redirect_ip, hosts_path)
-    elif action == "unblock":
+    elif args.unblock:
         unblock_websites(websites_to_block, hosts_path)
     else:
-        print("Invalid action. Use 'block' or 'unblock'.")
-        sys.exit(1)
+        parser.print_help()
