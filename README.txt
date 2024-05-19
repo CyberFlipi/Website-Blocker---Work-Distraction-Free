@@ -4,7 +4,16 @@ NOTES AND REQUIREMENTS:
     This app was made for Windows users only(for now).
     You need python installed on your machine (PC) in order to run this program.(Find out how to get it in 2 mins in the text below)
 
+
+PYTHON DOWNLOAD 
+    Download Python from the official website: https://www.python.org/downloads/
+    Open downloaded file 
+    Press "Install Now" option and wait for it to complete
+    You're all set!
+
 ////////////////////////////////////////////////////////////////////////////
+
+APPLICATION EXPLANATION
 
 Hello Dear User!
 
