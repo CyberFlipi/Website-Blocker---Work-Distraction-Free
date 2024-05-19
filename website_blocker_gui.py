@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import os
 import tkinter as tk
 from tkinter import messagebox
 
@@ -76,33 +75,44 @@ def on_unblock():
     else:
         messagebox.showwarning("Input Error", "Please enter at least one website.")
 
+# Dark theme colors
+bg_color = "#2e2e2e"
+fg_color = "#ffffff"
+btn_bg_color = "#444444"
+btn_fg_color = "#ffffff"
+entry_bg_color = "#3e3e3e"
+entry_fg_color = "#ffffff"
+text_bg_color = "#2e2e2e"
+text_fg_color = "#ffffff"
+
 # Create the main window
 root = tk.Tk()
 root.title("Website Blocker")
+root.configure(bg=bg_color)
 
 # Create and place the widgets
-frame = tk.Frame(root, padx=10, pady=10)
+frame = tk.Frame(root, padx=10, pady=10, bg=bg_color)
 frame.pack(padx=10, pady=10)
 
-label = tk.Label(frame, text="Enter websites (separated by space):")
+label = tk.Label(frame, text="Enter websites (separated by space):", bg=bg_color, fg=fg_color)
 label.pack(pady=5)
 
-entry_websites = tk.Entry(frame, width=50)
+entry_websites = tk.Entry(frame, width=50, bg=entry_bg_color, fg=entry_fg_color, insertbackground=fg_color)
 entry_websites.pack(pady=5)
 
-block_button = tk.Button(frame, text="Block Websites", command=on_block)
+block_button = tk.Button(frame, text="Block Websites", command=on_block, bg=btn_bg_color, fg=btn_fg_color)
 block_button.pack(pady=5)
 
-unblock_button = tk.Button(frame, text="Unblock Websites", command=on_unblock)
+unblock_button = tk.Button(frame, text="Unblock Websites", command=on_unblock, bg=btn_bg_color, fg=btn_fg_color)
 unblock_button.pack(pady=5)
 
-blocked_websites_label = tk.Label(frame, text="Currently Blocked Websites:")
+blocked_websites_label = tk.Label(frame, text="Currently Blocked Websites:", bg=bg_color, fg=fg_color)
 blocked_websites_label.pack(pady=5)
 
-blocked_websites_text = tk.Text(frame, width=50, height=10, state=tk.NORMAL)
+blocked_websites_text = tk.Text(frame, width=50, height=10, bg=text_bg_color, fg=text_fg_color, state=tk.NORMAL, insertbackground=fg_color)
 blocked_websites_text.pack(pady=5)
 
-refresh_button = tk.Button(frame, text="Refresh List", command=update_blocked_websites_list)
+refresh_button = tk.Button(frame, text="Refresh List", command=update_blocked_websites_list, bg=btn_bg_color, fg=btn_fg_color)
 refresh_button.pack(pady=5)
 
 # Initialize the list of blocked websites
