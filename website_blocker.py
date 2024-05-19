@@ -1,4 +1,5 @@
 import os
+import sys
 
 # List of websites to block
 websites_to_block = [
@@ -36,8 +37,16 @@ def unblock_websites(websites, hosts_path):
     except PermissionError:
         print("Permission denied: Please run this script as an administrator.")
 
-# Block the websites
-block_websites(websites_to_block, redirect_ip, hosts_path)
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python website_blocker.pt <block|unblock>")
+        sys.exit(1)
 
-# To unblock the websites, use:
-# unblock_websites(websites_to_block, hosts_path)
+    action = sys.argv[1].lower()
+    if action == "block":
+        block_websites(websites_to_block, redirect_ip, hosts_path)
+    elif action == "unblock":
+        unblock_websites(websites_to_block, hosts_path)
+    else:
+        print("Invalid action. Use 'block' or 'unblock'.")
+        sys.exit(1)
