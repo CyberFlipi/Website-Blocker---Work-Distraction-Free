@@ -1,3 +1,7 @@
 @echo off
+
 cd /d "%~dp0"
-cmd /k
+
+python website_blocker_gui.py
+
+pause
